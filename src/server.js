@@ -51,13 +51,6 @@ const init = async () => {
     server.route([
         {
             method: 'GET',
-            path: '/',
-            handler: (request, h) => {
-                return h.view('index')
-            }
-        },
-        {
-            method: 'GET',
             path: '/login',
             handler: (request, h) => {
                 return h.view('login')
