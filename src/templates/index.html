@@ -1,0 +1,16 @@
+{{> _header }}
+
+    <form action="#">
+        <select name="categories" id="categories">
+            {{#each categories}}
+                <option value={{id}}>{{name}}</option>
+            {{/each}}
+        </select>
+        <select name="difficulties" id="difficulties">
+            {{#each difficulties}}
+                <option value={{this}}>{{this}}</option>
+            {{/each}}
+        </select>
+    </form>
+
+{{> _footer }}
