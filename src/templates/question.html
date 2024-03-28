@@ -1,12 +1,16 @@
 {{> _header }}
-<main class="flex justify-center align-center self-center">
+<main class="flex flex-40">
     <article class="question">
-        <form action="/question" method="post">
-            <p>{{ question.question }}</p>
-            {{#each question.incorrect_answers}}
-            <input type="radio" name="answer" id="{{this}}" class="choice" value="{{ this }}""> {{ this }}
-            {{/each}}
-            <button type="submit">Lanjut</button>
+        <form action="/question" method="post" class="flex flex-col gap-5">
+            <p class="question">{{ question.question }}</p>
+            <div class="answers flex flex-col gap-5">
+                {{#each question.incorrect_answers}}
+                <span class="flex flex-row gap-5 align-center">
+                    <input type="radio" name="answer" id="{{this}}" class="choice" value="{{ this }}""> {{ this }}
+                </span>
+                {{/each}}
+            </div>
+            <button type=" submit">Lanjut</button>
         </form>
     </article>
 </main>

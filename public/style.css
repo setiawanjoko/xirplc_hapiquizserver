@@ -86,11 +86,32 @@ body {
     flex-wrap: nowrap;
 }
 
+.gap-5 {
+    gap: 5px;
+}
+
 main {
     background-color: gainsboro;
+    padding: 25px 15px;
 }
 
 input, select, button {
     padding: 4px 3px;
     min-height: 25px;
+}
+
+button {
+    width: fit-content;
+}
+
+.smaller {
+    font-size: smaller;
+}
+
+.larger {
+    font-size: larger;
+}
+
+.bold {
+    font-weight: bold;
 }

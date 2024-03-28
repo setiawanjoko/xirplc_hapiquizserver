@@ -1,12 +1,14 @@
 {{> _header }}
-<main class="flex justify-center align-center self-center">
-    <article>
-        <form action="/start" method="post">
+<main class="flex flex-40">
+    <article class="flex">
+        <form action="/start" method="post" class="flex flex-col gap-5">
+            <label for="categories" class="smaller bold">Choose category</label>
             <select name="categories" id="categories">
                 {{#each categories}}
                 <option value={{id}}>{{name}}</option>
                 {{/each}}
             </select>
+            <label for="categories" class="smaller bold">Choose difficulty</label>
             <select name="difficulties" id="difficulties">
                 {{#each difficulties}}
                 <option value={{this}}>{{this}}</option>
