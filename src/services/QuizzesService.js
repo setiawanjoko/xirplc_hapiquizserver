@@ -5,10 +5,10 @@ class QuizzesService {
     constructor() {
         this._categories = []
         this.difficulties = ["easy", "medium", "hard"]
-        this.amount = 5
+        this.amount = 3
         this.type = "multiple"
         this._questions = []
-        this._currentQuestion = 0
+        this._currentQuestion = -1
     }
 
     async getCategories() {
@@ -36,7 +36,7 @@ class QuizzesService {
             const response = await fetch(query)
             const data = await response.json()
             this._questions = [...data.results]
-            console.log(this._questions)
+            console.log(`${this._questions.length} question retrieved from API!`)
             return this._questions
         } catch (err) {
             return console.log(err)
@@ -44,7 +44,13 @@ class QuizzesService {
     }
 
     getQuestion() {
-        if(this._currentQuestion < this.amount) return this._questions[this._currentQuestion++]
+        if(this._currentQuestion < this.amount) return this._questions[this._currentQuestion]
+
+        return false
+    }
+
+    getNextQuestion() {
+        if(this._currentQuestion+1 < this.amount) return this._questions[++this._currentQuestion]
 
         return false
     }

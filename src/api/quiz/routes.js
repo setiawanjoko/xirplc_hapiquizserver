@@ -13,6 +13,16 @@ const routes = (handler) => [
         method: 'GET',
         path: '/question',
         handler: (request, h) => handler.getQuestionHandler(request, h)
+    },
+    {
+        method: 'POST',
+        path: '/question',
+        handler: (request, h) => handler.postQuestionHandler(request, h)
+    },
+    {
+        method: 'GET',
+        path: '/score',
+        handler: (request, h) => handler.getScoreHandler(request, h)
     }
 ]
 
