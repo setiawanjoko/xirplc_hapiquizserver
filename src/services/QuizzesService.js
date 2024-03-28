@@ -11,16 +11,15 @@ class QuizzesService {
         this._currentQuestion = 0
     }
 
-    getCategories() {
-        return fetch('https://opentdb.com/api_category.php')
-            .then(response => response.json())
-            .then(data => {
-                this._categories = [...data.trivia_categories]
-            })
-            .then(() => {
-                return this._categories
-            })
-            .catch(err => console.log(err))
+    async getCategories() {
+        try {
+            const response = await fetch('https://opentdb.com/api_category.php')
+            const data = await response.json()
+            this._categories = [...data.trivia_categories]
+            return this._categories
+        } catch (err) {
+            return console.log(err)
+        }
     }
 
     getCategory(id) {
@@ -31,18 +30,17 @@ class QuizzesService {
         return this.difficulties
     }
 
-    getQuestions(category, difficulty) {
+    async getQuestions(category, difficulty) {
         const query = `https://opentdb.com/api.php?amount=${this.amount}&category=${category}&type=${this.type}&difficulty=${difficulty}`
-        return fetch(query)
-            .then(response => response.json())
-            .then(data => {
-                this._questions = [...data.results]
-                console.log(this._questions)
-            })
-            .then(() => {
-                return this._questions
-            })
-            .catch(err => console.log(err))
+        try {
+            const response = await fetch(query)
+            const data = await response.json()
+            this._questions = [...data.results]
+            console.log(this._questions)
+            return this._questions
+        } catch (err) {
+            return console.log(err)
+        }
     }
 
     getQuestion() {

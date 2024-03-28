@@ -11,13 +11,6 @@ class QuizHandler {
 
         return h.view('index', {categories, difficulties})
     }
-
-    /**
-     * TODO: Setelah memilih kategori dan tingkat kesulitan
-     * yang ada di halaman start, sekarang buatlah sebuah halaman
-     * dengan endpoint /info untuk menampilkan isian yang akan
-     * dipilih oleh user di halaman start
-     */
     
     async postStartMenuHandler(request, h){
         let {id: category} = this._service.getCategory(request.payload.categories)
@@ -28,7 +21,7 @@ class QuizHandler {
     getQuestionHandler(request, h) {
         let question = this._service.getQuestion()
         question.incorrect_answers.push(question.correct_answer)
-        
+
         return h.view('question', {question})
     }
 }
