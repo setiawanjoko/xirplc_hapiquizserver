@@ -15,13 +15,14 @@ class QuizHandler {
     async postStartMenuHandler(request, h){
         let {id: category} = this._service.getCategory(request.payload.categories)
         await this._service.getQuestions(category, request.payload.difficulties)
-        return this.getQuestionHandler(request, h)
+        return h.redirect('/question')
     }
 
     getQuestionHandler(request, h) {
         let question = this._service.getQuestion()
-        question.incorrect_answers.push(question.correct_answer)
+        if(!question) return h.redirect('/score')
 
+        question.incorrect_answers.push(question.correct_answer)
         return h.view('question', {question})
     }
 }
