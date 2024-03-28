@@ -1,0 +1,17 @@
+{{> _header }}
+<main class="flex justify-center align-center self-center">
+    <article class="question">
+        <form action="/question" method="post">
+            <p>{{ question.question }}</p>
+            {{#each question.incorrect_answers}}
+            <input type="radio" name="answer" id="{{this}}" class="choice" value="{{ this }}""> {{ this }}
+            {{/each}}
+            <button type="submit">Lanjut</button>
+        </form>
+    </article>
+</main>
+
+{{> _footer }}
+
+<!--
+    <span class="point">{{ currentPoint }} dari {{ totalPoint }}</span>-->

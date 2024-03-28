@@ -1,16 +1,20 @@
 {{> _header }}
-
-    <form action="#">
-        <select name="categories" id="categories">
-            {{#each categories}}
+<main class="flex justify-center align-center self-center">
+    <article>
+        <form action="/start" method="post">
+            <select name="categories" id="categories">
+                {{#each categories}}
                 <option value={{id}}>{{name}}</option>
-            {{/each}}
-        </select>
-        <select name="difficulties" id="difficulties">
-            {{#each difficulties}}
+                {{/each}}
+            </select>
+            <select name="difficulties" id="difficulties">
+                {{#each difficulties}}
                 <option value={{this}}>{{this}}</option>
-            {{/each}}
-        </select>
-    </form>
+                {{/each}}
+            </select>
+            <button type="submit">Mulai</button>
+        </form>
+    </article>
+</main>
 
 {{> _footer }}
